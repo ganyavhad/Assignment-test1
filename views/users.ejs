@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <title>KYC Form</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <div class="topnav">
+        <a class="active" href="/user">Users</a>
+        <a href="/kycform">Kyc Form</a>
+        <a href="" style="float:right;">Logged in as <%= userName%></a>
+        <a href="/logout" style="float:right;">Logout</a>
+    </div>
+    <% if (users.length > 0) { %>
+    <table class="table">
+        <thead>
+            <td>
+                First Name
+            </td>
+            <td>
+                Last Name
+            </td>
+            <td>
+                Email
+            </td>
+            <td>
+                Mobile
+            </td>
+        </thead>
+        <tbody>
+            <% users.forEach(function(user) { %>
+            <tr>
+                <td><%= user.firstName %></td>
+                <td><%= user.lastName %></td>
+                <td><%= user.email %></td>
+                <td><%= user.mobile %></td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    <%} else { %>
+    <h2> Users not found </h2>
+    <% } %>
+</body>
+
+</html>
